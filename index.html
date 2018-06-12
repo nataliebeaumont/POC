@@ -5,7 +5,17 @@
     <title>POC</title>
   </head>
   <body>
-    <h1>Token:</h1><span></span>
-    <script src="script.js"></script>
+    <h1>Token:</h1><span id="output"></span>
+    <script>
+      function getToken() {
+        var output = document.getElementbyId('output');
+        var url = new URL(window.location.href);
+        var token = url.searchParams.get('access_token');
+        console.log('token', token);
+        output.textContent = token;
+      }
+      
+      window.onload = getToken;
+    </script>
   </body>
 </html>
